@@ -1,4 +1,10 @@
-<?php $this->layout('template', ['name' => null, 'user_logged_in' => null]) ?>
+<?php 
+$this->layout('template', [
+    'title'             => 'Register',
+    'name'              => null, 
+    'user_logged_in'    => null
+]) 
+?>
 
 <div class="container">
     <div class="row">

@@ -1,4 +1,10 @@
-<?php $this->layout('template', ['name' => $this->e($name), 'user_logged_in' => $user_logged_in]) ?>
+<?php 
+$this->layout('template', [
+	'title' => 'Home',
+	'name' => $this->e($name), 
+	'user_logged_in' => $user_logged_in
+]) 
+?>
 
 <div class="jumbotron">
 	<h1>Home Screen</h1>
