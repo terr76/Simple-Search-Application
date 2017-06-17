@@ -1,5 +1,6 @@
 <div class="container">
     <div class="row">
+        <?php echo $output; ?>
         <div class='col-md-3'></div>
         <div class="col-md-6">
             <div class="login-box well">

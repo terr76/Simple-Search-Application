@@ -8,6 +8,7 @@
 
 namespace Mini\Controller;
 
+use Mini\Core\Message;
 use Mini\Core\Session;
 use Mini\Model\User;
 use Mini\Model\Login;
@@ -27,7 +28,8 @@ class RegisterController
         if (Login::isUserLoggedIn()) {
             header('location: ' . URL );
         } else {
-        // load views
+            $output = Message::renderFeedbackMessages();
+            // load views
             require APP . 'view/_templates/header.php';
             require APP . 'view/register/index.php';
             require APP . 'view/_templates/footer.php';

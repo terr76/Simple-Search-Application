@@ -7,6 +7,7 @@
 
 <div class="row marketing">
 	<div class="col-lg-12">
+		<?php echo $output; ?>
 		<form action="/" method="get">
 		  <div class="form-group">
 

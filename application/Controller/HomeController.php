@@ -8,6 +8,7 @@
 
 namespace Mini\Controller;
 
+use Mini\Core\Message;
 use Mini\Core\Session;
 use Mini\Model\User;
 
@@ -35,6 +36,7 @@ class HomeController
         $user_logged_in = Session::userIsLoggedIn();
         $user_info = Session::get('name');
 
+        $output = Message::renderFeedbackMessages();
         // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/home/index.php';

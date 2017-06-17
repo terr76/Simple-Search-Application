@@ -8,6 +8,7 @@
 
 namespace Mini\Controller;
 
+use Mini\Core\Message;
 use Mini\Core\Session;
 use Mini\Model\Login;
 
@@ -27,6 +28,7 @@ class LoginController
         if (Login::isUserLoggedIn()) {
             header('location: ' . URL );
         } else {
+            $output = Message::renderFeedbackMessages();
             // load views
             require APP . 'view/_templates/header.php';
             require APP . 'view/login/index.php';
@@ -59,4 +61,5 @@ class LoginController
         Session::destroy();
         header('location: ' . URL );
     }
+  
 }
