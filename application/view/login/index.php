@@ -1,4 +1,4 @@
-<?php $this->layout('template') ?>
+<?php $this->layout('template', ['name' => null, 'user_logged_in' => null]) ?>
 
 <div class="container">
     <div class="row">
