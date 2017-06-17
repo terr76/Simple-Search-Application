@@ -35,7 +35,7 @@ class User extends Model
         $sql = "SELECT id, name, email FROM users
                     WHERE name LIKE :name OR email LIKE :email";
         $query = $db->prepare($sql);
-        $parameters = array(':name' => $keyword, ':email' => $keyword);
+        $parameters = array(':name' => '%'.$keyword.'%', ':email' => '%'.$keyword.'%');
         $query->execute($parameters);
 
         return $query->fetchAll();

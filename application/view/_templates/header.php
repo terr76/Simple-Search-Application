@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap Template</title>
+    <title>Spoonity Technical Coding Challenge</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -28,7 +28,20 @@
       <nav>
         <ul class="nav nav-pills pull-right">
           <li role="presentation" class="active"><a href="/">Home</a></li>
+          <?php if(isset($user_logged_in) && $user_logged_in == '1') {
+            echo '<li role="presentation"><a href="/login/logout">Logout</a></li>';
+          } else {
+            echo '<li role="presentation"><a href="/login">Login</a></li>';
+          }
+          ?>
         </ul>
       </nav>
-      <h3 class="text-muted">Project Name</h3>  
+      <h3 class="text-muted">Spoonity Technical Coding Challenge</h3>
+
+      <div class="nav">
+        <?php if(isset($user_logged_in) && $user_logged_in == '1') {
+          echo '<div class="pull-right"><p>Welcome, '. $user_info .'</p></div>';
+        } 
+        ?>      
+      </div>   
     </div>
