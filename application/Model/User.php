@@ -41,6 +41,9 @@ class User extends Model
         return $query->fetchAll();
     }
 
+    /**
+     * Insert user datas into database
+     */
     public static function addUser()
     {
 
@@ -82,8 +85,9 @@ class User extends Model
         $sql = "INSERT INTO users (name, email, password) VALUES (:name, :email, :password)";
         $query = $db->prepare($sql);
         $parameters = array(':name' => $name, ':email' => $email, ':password' => $password_hash);
-
         $query->execute($parameters);
+
+        Session::add('feedback_positive', 'FEEDBACK_ACCOUNT_SUCCESSFULLY_CREATED');
 
         return true;
 
@@ -102,8 +106,8 @@ class User extends Model
 
         $sql = "SELECT id, name, email, password
                   FROM users
-                 WHERE email = :email
-                 LIMIT 1";
+                  WHERE email = :email
+                  LIMIT 1";
         $query = $db->prepare($sql);
 
         // DEFAULT is the marker for "normal" accounts (that have a password etc.)

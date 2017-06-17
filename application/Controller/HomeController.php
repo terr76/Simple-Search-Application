@@ -26,7 +26,7 @@ class HomeController
     public function index()
     {
         // getting all users and amount of users
-        if(isset($_GET['search']) && $_GET['search'] != null) {
+        if(isset($_GET['search']) && $_GET['search'] != null){
             $users = User::searchKeywords($_GET['search']);
         // getting all users and amount of users
         } else {
@@ -34,13 +34,24 @@ class HomeController
         }
         
         $user_logged_in = Session::userIsLoggedIn();
-        $user_info = Session::get('name');
+        $name = Session::get('name');
 
-        $output = Message::renderFeedbackMessages();
-        // load views
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/home/index.php';
-        require APP . 'view/_templates/footer.php';
+        $message = Message::renderFeedbackMessages();
+
+        $data = [
+            'users'             => $users,
+            'name'              => $name,
+            'message'           => $message,
+            'user_logged_in'    => $user_logged_in,
+        ];
+
+        // Create new Plates instance
+        $templates = new \League\Plates\Engine(APP . 'view'); 
+
+        // Assign directly to a template object
+        echo $templates->render('home/index', $data);
+
+
     }
 
 }

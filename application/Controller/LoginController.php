@@ -28,11 +28,16 @@ class LoginController
         if (Login::isUserLoggedIn()) {
             header('location: ' . URL );
         } else {
-            $output = Message::renderFeedbackMessages();
-            // load views
-            require APP . 'view/_templates/header.php';
-            require APP . 'view/login/index.php';
-            require APP . 'view/_templates/footer.php';
+
+            $message = Message::renderFeedbackMessages();
+            $data = ['message' => $message];
+
+            // Create new Plates instance
+            $templates = new \League\Plates\Engine(APP . 'view'); 
+
+            // Assign directly to a template object
+            echo $templates->render('login/index', $data);
+
         }
     }
 

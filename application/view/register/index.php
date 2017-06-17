@@ -1,6 +1,8 @@
+<?php $this->layout('template') ?>
+
 <div class="container">
     <div class="row">
-        <?php echo $output; ?>
+        <?= $message ?>
         <div class='col-md-3'></div>
         <div class="col-md-6">
             <div class="login-box well">
