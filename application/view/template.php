@@ -25,7 +25,7 @@
 
 		<div class="container">
 			<!-- Header -->
-			<?php $this->insert('_partials/header', ['user_logged_in' => $user_logged_in, 'name' => $name]) ?>
+			<?php $this->insert('_partials/header', ['user_logged_in' => $user_logged_in]) ?>
 			
 			<!-- Content -->
 			<?=$this->section('content')?>

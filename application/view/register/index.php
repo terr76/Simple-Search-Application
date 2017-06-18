@@ -1,7 +1,6 @@
 <?php 
 $this->layout('template', [
     'title'             => 'Register',
-    'name'              => null, 
     'user_logged_in'    => null
 ]) 
 ?>
