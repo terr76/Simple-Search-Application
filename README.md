@@ -1,6 +1,6 @@
 # MVC Simple Search Application
 
-This is a simple search application with login system for technical coding challenge from one of my job interview. I have used clean base MVC structure from [MINI](https://github.com/panique/mini) and customized simple logic to show my reference for PHP best practices. 
+This is a simple search application with login system for technical coding challenge from one of my job interview. I have used clean base MVC structure from [MINI](https://github.com/panique/mini) and customized simple logic to show my reference for PHP best practices. I also used PHP Template [Plates](http://platesphp.com/) for the view instead.
 
 ### Goals of this project:
 - Create 4 screen (Home, Login, Register, Search Result).
