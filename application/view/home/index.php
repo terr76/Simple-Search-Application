@@ -1,7 +1,7 @@
 <?php 
 $this->layout('template', [
-	'title' => 'Home',
-	'user_logged_in' => $user_logged_in
+	'title' 			=> 'Home',
+	'user_logged_in' 	=> $user_logged_in
 ]);
 ?>
 

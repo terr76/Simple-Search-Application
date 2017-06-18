@@ -53,8 +53,7 @@ class User extends Model
         $password           = trim(strip_tags($_POST['password']));
         $password_repeat    = trim(strip_tags($_POST['password_repeat']));
 
-        // crypt the password with the PHP 5.5's password_hash() function, results in a 60 character hash string.
-        // @see php.net/manual/en/function.password-hash.php 
+        // crypt the password with the PHP 5.5's password_hash() function
         $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
         // make return a bool variable, so it will return false if there is an error
@@ -90,13 +89,10 @@ class User extends Model
         Session::add('feedback_positive', 'FEEDBACK_ACCOUNT_SUCCESSFULLY_CREATED');
 
         return true;
-
     } 
 
     /**
      * Gets the user's data
-     *
-     * @return mixed Returns false if email does not exist, returns object with user's data when user exists
      */
     public static function getUserDataByEmail($email)
     {
@@ -108,17 +104,14 @@ class User extends Model
                   LIMIT 1";
         $query = $db->prepare($sql);
 
-        // DEFAULT is the marker for "normal" accounts (that have a password etc.)
-        // There are other types of accounts that don't have passwords etc. (FACEBOOK)
         $query->execute(array(':email' => $email));
 
-        // return one row (we only have one result or nothing)
+        // return one row 
         return $query->fetch();
     }
 
     /**
      * Checks if a email is already used
-     *
      */
     public static function doesEmailAlreadyExist($email)
     {

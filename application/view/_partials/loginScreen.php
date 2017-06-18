@@ -1,4 +1,4 @@
-<?= $message ?>
+<?=$message?>
 <div class="login-box well">
     <form action="/login/login" method="post">
         <legend>Sign In</legend>

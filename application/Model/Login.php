@@ -19,27 +19,25 @@ class Login extends Model
      */
     public static function index($email, $password)
     {
-        // check negative first, for simplicity empty username and empty password in one line
+        // check negative first, for simplicity empty email and empty password in one line
         if (empty($email) OR empty($password)) {
 
             Session::add('feedback_negative', 'FEEDBACK_USERNAME_OR_PASSWORD_FIELD_EMPTY');
             return false;
         }
 
-        // checks if user exists, if login is not blocked (due to failed logins) and if password fits the hash
-        // get all data of that user (to later check if password and password_hash fit)
+        // checks if user exists
         $result = User::getUserDataByEmail($email);
 
-        // if hash of provided password does NOT match the hash in the database: +1 failed-login counter
+        // if hash of provided password does NOT match the hash in the database
         if (!password_verify($password, $result->password)) {
             Session::add('feedback_negative', 'FEEDBACK_USERNAME_OR_PASSWORD_WRONG');
             return false;
         }
 
 
-        // check if that user exists. We don't give back a cause in the feedback to avoid giving an attacker details.
+        // check if that user exists. 
         if (!$result) {
-            //No Need to give feedback here since whole validateAndGetUser controls gives a feedback
             return false;
         }
 
@@ -47,7 +45,6 @@ class Login extends Model
         self::setSuccessfulLoginIntoSession($result->name, $result->email);
 
         // return true to make clear the login was successful
-        // maybe do this in dependence of setSuccessfulLoginIntoSession ?
         return true;
     }
 
@@ -60,8 +57,7 @@ class Login extends Model
     }
 
     /**
-     * The real login process: The user's data is written into the session.
-     * Cheesy name, maybe rename. Also maybe refactoring this, using an array.
+     * The user's data is written into the session.
      */
     public static function setSuccessfulLoginIntoSession($name, $email)
     {
@@ -83,8 +79,6 @@ class Login extends Model
 
     /**
      * Returns the current state of the user's login
-     *
-     * @return bool user's login status
      */
     public static function isUserLoggedIn()
     {

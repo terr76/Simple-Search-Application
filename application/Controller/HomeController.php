@@ -3,7 +3,7 @@
 /**
  * Class HomeController
  * 
- * This cotroller shows search form for the loggedin user. 
+ * This cotroller has search form for the loggedin user. 
  */
 
 namespace Mini\Controller;

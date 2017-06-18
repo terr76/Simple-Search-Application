@@ -61,8 +61,6 @@ class Session
 
     /**
      * Checks if the user is logged in or not
-     *
-     * @return bool user's login status
      */
     public static function userIsLoggedIn()
     {

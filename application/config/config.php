@@ -3,9 +3,6 @@
 /**
  * Configuration
  *
- */
-
-/**
  * Configuration for: Error reporting
  */
 define('ENVIRONMENT', 'development');
