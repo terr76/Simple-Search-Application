@@ -1,5 +1,4 @@
-        <?= $message ?>
-
+<?= $message ?>
 <div class="login-box well">
     <form action="/login/login" method="post">
         <legend>Sign In</legend>
@@ -16,9 +15,7 @@
             <input type="submit" class="btn btn-default btn-login-submit btn-block m-t-md" name="Login" />
         </div>
 
-        <?php if(isset($_GET['search']) && strlen($_GET['search']) > 1) { ?>
-            <input type="text" name="redirect" value="<?= urlencode($_SERVER['REQUEST_URI']) ?>" />
-        <?php } ?>
+        <input type="hidden" name="redirect" value="<?= urlencode($_SERVER['REQUEST_URI']) ?>" />
 
         <div class="form-group">
             <p class="text-center m-t-xs text-sm">Do not have an account?</p> 
