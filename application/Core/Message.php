@@ -15,9 +15,6 @@ class Message
      */
     public static function renderFeedbackMessages()
     {
-        // echo out the feedback messages (errors and success messages etc.),
-        // they are in $_SESSION["feedback_positive"] and $_SESSION["feedback_negative"]
-        // 
         // get the feedback (they are arrays, to make multiple positive/negative messages possible)
         $feedback_positive = Session::get('feedback_positive');
         $feedback_negative = Session::get('feedback_negative');

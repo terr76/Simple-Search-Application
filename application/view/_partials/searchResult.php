@@ -1,3 +1,4 @@
+<?php if($users): ?>
 <div class="table-responsive">
 	<table class="table table-hover">
 	    <thead>
@@ -18,3 +19,9 @@
 	    </tbody>
 	</table>
 </div>
+<?php else: ?>
+	<div class="alert alert-danger" role="alert">
+		<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+		<span class="sr-only">Error:</span>No Result
+	</div>
+<?php endif ?>

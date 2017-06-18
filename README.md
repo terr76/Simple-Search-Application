@@ -40,7 +40,7 @@ The folder name `html` must be same as `<your-html-dir>`
 
 3. Execute the .sql statements in the `_install/` folder. 
 
-4. excute composer install to add external libraries and to use namespace via autoload(PSR-4)
+4. Excute composer install to use external libraries and namespace via autoload(PSR-4).
 
 ### Testing with demo user
 Demo User Email: `john@example.com`
