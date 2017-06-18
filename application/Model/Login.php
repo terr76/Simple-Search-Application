@@ -16,11 +16,6 @@ class Login extends Model
 {
     /**
      * Login process (for DEFAULT user accounts).
-     *
-     * @param $email string The email address
-     * @param $password string The user's password
-     *
-     * @return bool success state
      */
     public static function index($email, $password)
     {
@@ -57,7 +52,7 @@ class Login extends Model
     }
 
     /**
-     * Log out process: delete cookie, delete session
+     * Log out process: delete session
      */
     public static function logout()
     {
@@ -67,11 +62,6 @@ class Login extends Model
     /**
      * The real login process: The user's data is written into the session.
      * Cheesy name, maybe rename. Also maybe refactoring this, using an array.
-     *
-     * @param $user_id
-     * @param $email
-     * @param $user_email
-     * @param $user_account_type
      */
     public static function setSuccessfulLoginIntoSession($name, $email)
     {

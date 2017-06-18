@@ -20,9 +20,6 @@ class HomeController
         Session::init();
     }
 
-    /**
-     * This method controls what happens when you move to /dashboard/index in your app.
-     */
     public function index()
     {
         // getting all users and amount of users

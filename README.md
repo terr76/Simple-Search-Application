@@ -18,7 +18,7 @@ This is a simple search application with login system for technical coding chall
 ## Installation
 ### On Docker
 
-1. Download LAMP Base Docker image && run it (You have to provide <your-container-name>, <your-html-dir>, <your-mysql-data-dir>)
+1. Download LAMP Base Docker image && run it (You have to provide `<your-container-name>`, `<your-html-dir>`, `<your-mysql-data-dir>`)
 
 ```bash
 docker run -d \

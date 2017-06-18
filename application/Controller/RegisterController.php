@@ -20,9 +20,6 @@ class RegisterController
         Session::init();
     }
 
-    /**
-     * This method handles what happens when you move to http://yourproject/home/index (which is the default page btw)
-     */
     public function index()
     {
         if (Login::isUserLoggedIn()) {
@@ -40,7 +37,7 @@ class RegisterController
     }
 
     /**
-     * POST-request after form submit
+     * after register form submit
      */
     public function addUser()
     {

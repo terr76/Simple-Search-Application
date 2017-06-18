@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * Message class
+ *
+ * handles the message after success or fail 
+ */
+
 namespace Mini\Core;
 
 class Message

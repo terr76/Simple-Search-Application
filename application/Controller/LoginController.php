@@ -18,10 +18,7 @@ class LoginController
     {
         Session::init();
     }
-        
-    /**
-     * This method handles what happens when you move to http://yourproject/home/index (which is the default page btw)
-     */
+
     public function index()
     {
         // if user is logged in redirect to main-page, if not show the view

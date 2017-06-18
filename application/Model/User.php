@@ -96,9 +96,7 @@ class User extends Model
     /**
      * Gets the user's data
      *
-     * @param $email string User's name
-     *
-     * @return mixed Returns false if user does not exist, returns object with user's data when user exists
+     * @return mixed Returns false if email does not exist, returns object with user's data when user exists
      */
     public static function getUserDataByEmail($email)
     {
@@ -121,9 +119,6 @@ class User extends Model
     /**
      * Checks if a email is already used
      *
-     * @param $email string email
-     *
-     * @return bool
      */
     public static function doesEmailAlreadyExist($email)
     {

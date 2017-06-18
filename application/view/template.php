@@ -24,25 +24,21 @@
 	<body>
 
 		<div class="container">
+			<!-- Header -->
 			<?php $this->insert('_partials/header', ['user_logged_in' => $user_logged_in, 'name' => $name]) ?>
-
+			
+			<!-- Content -->
 			<?=$this->section('content')?>
-
+			
+			<!-- Footer -->
 			<?php $this->insert('_partials/footer') ?>
 
-
-	    </div> <!-- /container -->
+	    </div>
 
 	    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	    <!-- Latest compiled and minified JavaScript -->
 	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-	    <!-- define the project's URL (to make AJAX calls possible, even when using this in sub-folders etc) -->
-	    <script>
-	        var url = "<?php echo URL; ?>";
-	    </script>
-
 
 	</body>
 </html>		

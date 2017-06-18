@@ -16,34 +16,24 @@ $this->layout('template', [
 
 <div class="row marketing">
 	<div class="col-lg-12">
-
+		<!-- Messeage if non-logged in user try to search -->
 		<?php if((isset($_GET['search']) && strlen($_GET['search']) > 1) && ($user_logged_in != '1')): ?>
 			<div class="alert alert-danger" role="alert">
 				<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 				<span class="sr-only">Error:</span>Please Login
 			</div>
-		<?php endif ?>		
+		<?php endif ?>	
 
-		<form action="/" method="get">
-		  <div class="form-group">
-			<h2>Search</h2>
-			<div id="custom-search-input">
-			    <div class="input-group col-md-12">
-			        <input name="search" type="text" class="search-query form-control" placeholder="Search by Name or Email" />
-			        <span class="input-group-btn">
-			            <button class="btn btn-danger" type="submit">
-			                <span class=" glyphicon glyphicon-search"></span>
-			            </button>
-			        </span>			    		
-			    </div>
-			</div>
-		  </div>
-		</form>
+		<!-- Search Form -->
+		<?php $this->insert('_partials/searchForm') ?>
 
+		<!-- Login Screen if non-logged in user try to search -->
 		<?php if((isset($_GET['search']) && strlen($_GET['search']) > 1) && ($user_logged_in != '1')): ?>
-				<?php $this->insert('_partials/loginScreen', ['message' => $message]) ?>
-			<?php elseif(isset($_GET['search']) && strlen($_GET['search']) > 1): ?>
-				<?php $this->insert('home/result', ['users' => $users]) ?>
+			<?php $this->insert('_partials/loginScreen', ['message' => $message]) ?>
+		
+		<!-- Search Result for logged in user -->
+		<?php elseif(isset($_GET['search']) && strlen($_GET['search']) > 1): ?>
+			<?php $this->insert('_partials/searchResult', ['users' => $users]) ?>
 		<?php endif ?>		
 
 	</div>
