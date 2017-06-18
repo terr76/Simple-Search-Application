@@ -8,10 +8,9 @@ $this->layout('template', [
 
 <div class="container">
     <div class="row">
-        <?= $message ?>
         <div class='col-md-3'></div>
         <div class="col-md-6">
-            <?php $this->insert('_partials/loginScreen') ?>
+            <?php $this->insert('_partials/loginScreen', ['message' => $message]) ?>
         </div>
         <div class='col-md-3'></div>
     </div>

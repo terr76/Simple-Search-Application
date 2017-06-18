@@ -51,9 +51,9 @@ class LoginController
 
         // check login status: if true, then redirect user to user/index, if false, then to login form again
         if ($login_successful) {
-            header('location: ' . URL );
+            header('location: ' . URL . urldecode($_POST['redirect']));
         } else {
-            header('location: ' . URL . 'login');
+            header('location: ' . URL . urldecode($_POST['redirect']));
         }
     }
 

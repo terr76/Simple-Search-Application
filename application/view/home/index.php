@@ -3,7 +3,7 @@ $this->layout('template', [
 	'title' => 'Home',
 	'name' => $this->e($name), 
 	'user_logged_in' => $user_logged_in
-]) 
+]);
 ?>
 
 <div class="jumbotron">
@@ -16,7 +16,14 @@ $this->layout('template', [
 
 <div class="row marketing">
 	<div class="col-lg-12">
-		<?=$this->e($message)?>
+
+		<?php if((isset($_GET['search']) && strlen($_GET['search']) > 1) && ($user_logged_in != '1')): ?>
+			<div class="alert alert-danger" role="alert">
+				<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+				<span class="sr-only">Error:</span>Please Login
+			</div>
+		<?php endif ?>		
+
 		<form action="/" method="get">
 		  <div class="form-group">
 			<h2>Search</h2>
@@ -32,23 +39,21 @@ $this->layout('template', [
 			</div>
 		  </div>
 		</form>
+
+		<?php if((isset($_GET['search']) && strlen($_GET['search']) > 1) && ($user_logged_in != '1')): ?>
+				<?php $this->insert('_partials/loginScreen', ['message' => $message]) ?>
+			<?php elseif(isset($_GET['search']) && strlen($_GET['search']) > 1): ?>
+				<?php $this->insert('home/result', ['users' => $users]) ?>
+		<?php endif ?>		
+
 	</div>
 </div>
 
-<?php if($user_logged_in == '1'): ?>
 
-	<?php $this->insert('home/result', ['users' => $users]) ?>
 
-<?php else : ?>
+	
 
-	<div class="row">
-		<?php if(isset($_GET['search']) && strlen($_GET['search']) > 1): ?>
-			<div class="alert alert-danger" role="alert">
-				<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-				<span class="sr-only">Error:</span>Please Login</div>
-			</div>
-			<?php $this->insert('_partials/loginScreen') ?>
-		<?php endif ?>			
-	</div>
 
-<?php endif ?>
+	
+
+
