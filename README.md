@@ -1,6 +1,6 @@
 # MVC Simple Search Application
 
-This is a simple search application with login system for technical coding challenge from one of my job interview. I have used clean base MVC structure from [MINI](https://github.com/panique/mini) and customized simple logic to show my reference for PHP best practices. I also used PHP Template [Plates](http://platesphp.com/) for the view instead.
+This is a simple search application with login system for technical coding challenge from one of my job opportunity. I have used clean base MVC structure from [MINI](https://github.com/panique/mini) and customized simple logic to show my reference for PHP best practices. I also used PHP Template [Plates](http://platesphp.com/) for the view instead.
 
 ### Goals of this project:
 - Create 4 screen (Home, Login, Register, Search Result).
@@ -38,7 +38,7 @@ git clone https://github.com/panique/php-mvc.git html
 ```
 The folder name `html` must be same as `<your-html-dir>`
 
-3. Execute the .sql statements in the `_install/` folder. 
+3 Access DB(ID:root, PW:root) and execute the .sql statements in the `_install/` folder. 
 
 4. Excute composer install to use external libraries and namespace via autoload(PSR-4).
 
