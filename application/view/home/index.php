@@ -20,7 +20,7 @@ $this->layout('template', [
 <div class="row marketing">
 	<div class="col-lg-12">
 		<!-- Messeage if non-logged in user try to search -->
-		<?php if((isset($_GET['search']) && strlen($_GET['search']) > 1) && ($user_logged_in != '1')): ?>
+		<?php if($isSearch && ($user_logged_in != '1')): ?>
 			<div class="alert alert-danger" role="alert">
 				<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 				<span class="sr-only">Error:</span>Please Login
@@ -31,11 +31,11 @@ $this->layout('template', [
 		<?php $this->insert('_partials/searchForm') ?>
 
 		<!-- Login Screen if non-logged in user try to search -->
-		<?php if((isset($_GET['search']) && strlen($_GET['search']) > 1) && ($user_logged_in != '1')): ?>
+		<?php if($isSearch && ($user_logged_in != '1')): ?>
 			<?php $this->insert('_partials/loginScreen', ['message' => $message]) ?>
 		
 		<!-- Search Result for logged in user -->
-		<?php elseif(isset($_GET['search']) && strlen($_GET['search']) > 1): ?>
+		<?php elseif($isSearch): ?>
 			<?php $this->insert('_partials/searchResult', ['users' => $users]) ?>
 		<?php endif ?>		
 

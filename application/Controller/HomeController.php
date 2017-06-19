@@ -22,23 +22,26 @@ class HomeController
 
     public function index()
     {
+        $user_logged_in = Session::userIsLoggedIn();
+        $name = Session::get('name');
+        $isSearch = self::isSearch();
+
         // getting all users and amount of users
-        if(isset($_GET['search']) && $_GET['search'] != null){
+        if($isSearch){
             $users = User::searchKeywords($_GET['search']);
         // getting all users and amount of users
         } else {
             $users = User::getAllUsers();    
         }
-        
-        $user_logged_in = Session::userIsLoggedIn();
-        $name = Session::get('name');
 
+        // get message for search result or login failed
         $message = Message::renderFeedbackMessages();
 
         $data = [
             'users'             => $users,
             'name'              => $name,
             'message'           => $message,
+            'isSearch'          => $isSearch,
             'user_logged_in'    => $user_logged_in,
         ];
 
@@ -47,8 +50,15 @@ class HomeController
 
         // Assign directly to a template object
         echo $templates->render('home/index', $data);
+    }
 
-
+    public function isSearch()
+    {
+        if(isset($_GET['search']) && $_GET['search'] != null){
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

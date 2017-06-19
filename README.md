@@ -38,7 +38,7 @@ git clone https://github.com/panique/php-mvc.git html
 ```
 The folder name `html` must be same as `<your-html-dir>`
 
-3 Access DB(ID:root, PW:root) and execute the .sql statements in the `_install/` folder. 
+3. Access DB(ID:root, PW:root) and execute the .sql statements in the `_install/` folder. 
 
 4. Excute composer install to use external libraries and namespace via autoload(PSR-4).
 
